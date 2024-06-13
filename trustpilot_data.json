@@ -15,7 +15,7 @@ reviews_count_element = soup.find('span', attrs={'data-reviews-count': True})
 
 if rating_element and reviews_count_element:
     rating = float(rating_element['data-rating'])
-    reviews_count = reviews_count_element['data-reviews-count']
+    reviews_count = int(reviews_count_element['data-reviews-count'])
 
     # Create a dictionary to store the data
     data = {
