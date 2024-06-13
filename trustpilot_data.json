@@ -1,32 +1,4 @@
-import requests
-from bs4 import BeautifulSoup
-import json
-
-# URL of your Trustpilot page
-trustpilot_url = 'https://uk.trustpilot.com/review/www.egcarpentry.com'
-
-# Use requests to get the HTML content
-response = requests.get(trustpilot_url)
-soup = BeautifulSoup(response.content, 'html.parser')
-
-# Extract the rating and reviews count
-rating_element = soup.find('div', attrs={'data-rating': True})
-reviews_count_element = soup.find('span', attrs={'data-reviews-count': True})
-
-if rating_element and reviews_count_element:
-    rating = float(rating_element['data-rating'])
-    reviews_count = int(reviews_count_element['data-reviews-count'])
-
-    # Create a dictionary to store the data
-    data = {
-        "rating": rating,
-        "reviews_count": reviews_count
-    }
-
-    # Save the data to a JSON file
-    with open('trustpilot_data.json', 'w') as f:
-        json.dump(data, f)
-
-    print('Data scraped and saved successfully.')
-else:
-    print('Failed to extract data.')
+{
+  "rating": 4.5,
+  "reviews_count": 123
+}
