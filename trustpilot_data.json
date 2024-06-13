@@ -19,9 +19,9 @@ if rating_element and reviews_count_element:
 
     # Create a dictionary to store the data
     data = {
-  "rating": 4.5,
-  "reviews_count": 123
-}
+        "rating": rating,
+        "reviews_count": reviews_count
+    }
 
     # Save the data to a JSON file
     with open('trustpilot_data.json', 'w') as f:
